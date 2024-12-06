@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Crud Operations website" />
+    <!--bootstrap style-->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <!--custom style-->
+    <link rel="stylesheet" href="./css/style.min.css" />
+    <!--bootstarp icon-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>CrudOperations</title>
+  </head>
+  <body>
+  
+    <main>
+      <section class="py-5">
+        <div class="container">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="productName"
+              placeholder="Product Name"
+              autocomplete="off"
+              oninput=" validation(this)" />
+            <span class="text-danger d-none"
+              >Product Name must be start with upperCase Letter and must be 3 or
+              more charachters</span
+            >
+            <label for="floatingInput">Product Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="productPrice"
+              placeholder="Product price"
+              autocomplete="off"
+              oninput=" validation(this)" />
+            <span class="text-danger d-none"
+              >Product Price must be in range 6000 to 60000</span
+            >
+            <label for="floatingInput">Product price</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              list="catagoryList"
+              type="text"
+              class="form-control"
+              id="productCatagory"
+              placeholder="Product Catagory"
+              autocomplete="off"
+              oninput=" validation(this)" />
+            <span class="text-danger d-none"
+              >Product Catagory must be one of given options</span
+            >
+            <label for="floatingInput">Product Catagory</label>
+            <datalist id="catagoryList">
+              <option value="phones"></option>
+              <option value="smart screen"></option>
+              <option value="watches"></option>
+              <option value="Laptops"></option>
+            </datalist>
+          </div>
+          <div class="form-floating mb-3 position-relative">
+            <input
+              type="file"
+              class="form-control"
+              id="productImage"
+              required
+              autocomplete="off"
+              oninput="validation(this)" />
+            <span class="text-danger d-none"
+              >the file must be Image that have extension .jpg or .jpeg or .png
+              or .gif or .bmp or .tiff or .tif or .webp
+            </span>
+            <span class="text-danger nofiles d-none">Please Choose File</span>
+
+            <label for="productImage">Product Image</label>
+            <img src="" alt="" class="imageFile d-none" width="45px" />
+          </div>
+
+          <div class="form-floating mb-3">
+            <textarea
+              type="text"
+              class="form-control"
+              id="productDesc"
+              placeholder="Product Descreption"
+              autocomplete="off"
+              oninput=" validation(this)"></textarea>
+            <span class="text-danger d-none"
+              >please enter description from 0 to 250 characters</span
+            >
+            <label for="floatingInput">Product Discreption</label>
+          </div>
+          <button
+            class="btn btn-info w-100"
+            id="addBtn"
+            onclick="addProduct() ">
+            Add Product
+          </button>
+          <button
+            class="btn btn-success d-none w-100"
+            id="updateBtn"
+            onclick="updateProduct()">
+            Update Product
+          </button>
+        </div>
+      </section>
+      <section class="py-5 displayedProduct">
+        <div class="container">
+          <div class="form-floating mb-3">
+            <input
+              type="search"
+              class="form-control"
+              id="searchInpt"
+              placeholder="Search for specific products"
+              autocomplete="off" />
+            <span class="text-danger d-none">No products found</span>
+            <label for="floatingInput">Search for Product</label>
+          </div>
+          <button class="btn btn-outline-primary my-3 d-none" id="sortProduct">
+            Sort Product accordding to price Ascending
+          </button>
+          <button class="btn btn-outline-success my-3 d-none" id="returnBack">
+            return to original sorting
+          </button>
+          <button class="btn btn-outline-danger my-3 d-none" id="deleteAll">
+            Delete All Products
+          </button>
+
+          <div class="row gy-4"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
