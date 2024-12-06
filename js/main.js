@@ -77,7 +77,7 @@ function displayProduct(productList) {
         <img src="${e.productImage}"  class="card-img-top" alt="..." />
         <div class="card-body">
           <div class="card-text d-flex justify-content-between">
-           <span class="card-title badge bg-primary fs-1">${e.productCatagory}</span>
+           <span class="card-title badge bg-primary ">${e.productCatagory}</span>
             <span class="text-danger">${e.price}LE</span>
           </div>
             <span class="name">${e.title ? e.title : e.name}</span>
